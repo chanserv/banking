@@ -97,7 +97,7 @@ public class SavingAccountServiceTest {
 		double amount = 100;
 		accountservice.deposit(account, amount);
 		accountservice.deposit(account, amount);
-		String history = accountservice.formatString(account);
+		String history = accountservice.seeHistory(account);
 		String [] lines = history.split("\r\n|\r|\n");
 		assertThat(lines.length).isEqualTo(2);
 	}
