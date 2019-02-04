@@ -20,6 +20,14 @@ public class BankingDriverClass {
 		accountService.deposit(account, 100);
 		accountService.deposit(account, 100);
 		System.out.println(accountService.seeHistory(account));
+		
+		System.out.println("----");
+		try {
+			accountService.withdrawal(account, 300);
+		} catch(OverdraftLimitException excetion) {
+			excetion.printStackTrace();
+		}
+		System.out.println(accountService.seeHistory(account));
 	}
 
 }
