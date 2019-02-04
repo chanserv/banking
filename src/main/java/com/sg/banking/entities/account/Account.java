@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import com.sg.banking.entities.operation.OperationHistory;
+import com.sg.banking.entities.operation.Operation;
 
 public class Account {
 
 	private UUID 					id;
 	private double 					balance;
-	private List<OperationHistory>	history = new ArrayList<OperationHistory>();
+	private List<Operation>	history = new ArrayList<Operation>();
 
 	public Account() {
 		this.id = UUID.randomUUID();
@@ -27,14 +27,14 @@ public class Account {
 	public void setBalance(double balance) {
 		this.balance = balance;
 	}
-	public List<OperationHistory> getHistory() {
+	public List<Operation> getHistory() {
 		return history;
 	}
-	public void setHistory(List<OperationHistory> history) {
+	public void setHistory(List<Operation> history) {
 		this.history = history;
 	}
-	public void addHistory(OperationHistory operationHistory) {
-		history.add(operationHistory);
+	public void addHistory(Operation operation) {
+		history.add(operation);
 	}
 	@Override
 	public String toString() {
