@@ -4,7 +4,6 @@ import java.util.stream.Collectors;
 
 import com.sg.banking.entities.account.Account;
 import com.sg.banking.entities.operation.OperationHistory;
-import com.sg.banking.entities.operation.OperationStatusEnum;
 import com.sg.banking.entities.operation.OperationTypeEnum;
 import com.sg.banking.exceptions.OverdraftLimitException;
 import com.sg.banking.services.account.AccountService;
@@ -20,7 +19,6 @@ public class SavingAccountService implements AccountService {
 		account.addHistory(operationHistory);
 		
 		if(amount < 0) {
-			operationHistory.setStatus(OperationStatusEnum.FAIL);
 			throw new IllegalArgumentException("Negative amount exception '" + amount + "'");
 		}
 		account.setBalance(account.getBalance() + amount);
@@ -35,13 +33,11 @@ public class SavingAccountService implements AccountService {
 		account.addHistory(operationHistory);
 		
 		if(amount < 0) {
-			operationHistory.setStatus(OperationStatusEnum.FAIL);
 			throw new IllegalArgumentException("Negative amount exception");
 		}
 		
 		double newBalance = account.getBalance() - amount;
 		if(newBalance < OVERDRAFT_LIMIT) {
-			operationHistory.setStatus(OperationStatusEnum.FAIL);
 			throw new OverdraftLimitException("Overdraft limit exceeded");
 		} 
 		account.setBalance(account.getBalance() - amount);
