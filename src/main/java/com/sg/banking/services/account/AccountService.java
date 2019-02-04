@@ -14,5 +14,5 @@ public interface AccountService {
 		
 	public void withdrawal(Account account, double amount);
 	
-	public String formatString(Account account);
+	public String seeHistory(Account account);
 }
