@@ -3,8 +3,8 @@ package com.sg.banking.services.account.impl;
 import java.util.stream.Collectors;
 
 import com.sg.banking.entities.account.Account;
-import com.sg.banking.entities.operation.OperationHistory;
-import com.sg.banking.entities.operation.OperationTypeEnum;
+import com.sg.banking.entities.operation.Operation;
+import com.sg.banking.entities.operation.OperationType;
 import com.sg.banking.exceptions.OverdraftLimitException;
 import com.sg.banking.services.account.AccountService;
 
@@ -13,10 +13,10 @@ public class SavingAccountService implements AccountService {
 	@Override
 	public void deposit(Account account, double amount) {
 		
-		OperationHistory operationHistory = new OperationHistory(account.getBalance(),
+		Operation operation = new Operation(account.getBalance(),
 				amount, 
-				OperationTypeEnum.DEPOSIT);
-		account.addHistory(operationHistory);
+				OperationType.DEPOSIT);
+		account.addHistory(operation);
 		
 		if(amount < 0) {
 			throw new IllegalArgumentException("Negative amount exception '" + amount + "'");
@@ -27,10 +27,10 @@ public class SavingAccountService implements AccountService {
 	@Override
 	public void withdrawal(Account account, double amount) {
 		
-		OperationHistory operationHistory = new OperationHistory(account.getBalance(), 
+		Operation operation = new Operation(account.getBalance(), 
 				amount, 
-				OperationTypeEnum.WITHDRAWAL);
-		account.addHistory(operationHistory);
+				OperationType.WITHDRAWAL);
+		account.addHistory(operation);
 		
 		if(amount < 0) {
 			throw new IllegalArgumentException("Negative amount exception");

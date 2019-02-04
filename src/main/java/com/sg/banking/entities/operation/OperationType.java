@@ -1,6 +1,6 @@
 package com.sg.banking.entities.operation;
 
-public enum OperationTypeEnum {
+public enum OperationType {
 
 	DEPOSIT,
 	WITHDRAWAL

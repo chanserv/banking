@@ -5,7 +5,7 @@ import com.sg.banking.exceptions.OverdraftLimitException;
 import com.sg.banking.services.account.AccountService;
 import com.sg.banking.services.account.impl.SavingAccountService;
 
-public class BankingDriverClass {
+public class BankingSimulator {
 
 	public static void main(String[] args) {
 		

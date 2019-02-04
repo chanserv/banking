@@ -2,16 +2,16 @@ package com.sg.banking.entities.operation;
 
 import java.time.Instant;
 
-public class OperationHistory {
+public class Operation {
 
-	private double 			balanceBefore;
-	private double 			operationAmount;
-	private OperationTypeEnum 	type;
-	private Instant 		date;
+	private double 		balanceBefore;
+	private double 		operationAmount;
+	private OperationType 	type;
+	private Instant 	date;
 	
-	public OperationHistory(double balanceBefore,
+	public Operation(double balanceBefore,
 			double operationAmount,
-			OperationTypeEnum type) {
+			OperationType type) {
 		this.balanceBefore = balanceBefore;
 		this.operationAmount = operationAmount;
 		this.type = type;
@@ -29,10 +29,10 @@ public class OperationHistory {
 	public void setOperationAmount(double operationAmount) {
 		this.operationAmount = operationAmount;
 	}
-	public OperationTypeEnum getType() {
+	public OperationType getType() {
 		return type;
 	}
-	public void setType(OperationTypeEnum type) {
+	public void setType(OperationType type) {
 		this.type = type;
 	}
 	public Instant getDate() {
@@ -43,7 +43,7 @@ public class OperationHistory {
 	}
 	@Override
 	public String toString() {
-		return "OperationHistory [balanceBefore=" + balanceBefore + ", operationAmount=" + operationAmount + ", type="
+		return "Operation [balanceBefore=" + balanceBefore + ", operationAmount=" + operationAmount + ", type="
 				+ type + ", date=" + date + "]";
 	}
 	@Override
@@ -67,7 +67,7 @@ public class OperationHistory {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		OperationHistory other = (OperationHistory) obj;
+		Operation other = (Operation) obj;
 		if (Double.doubleToLongBits(balanceBefore) != Double.doubleToLongBits(other.balanceBefore))
 			return false;
 		if (date == null) {
