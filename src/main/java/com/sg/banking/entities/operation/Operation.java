@@ -4,10 +4,10 @@ import java.time.Instant;
 
 public class Operation {
 
-	private double 		balanceBefore;
-	private double 		operationAmount;
-	private OperationType 	type;
-	private Instant 	date;
+	private final double 		balanceBefore;
+	private final double 		operationAmount;
+	private final OperationType	type;
+	private final Instant		date;
 	
 	public Operation(double balanceBefore,
 			double operationAmount,
@@ -19,28 +19,16 @@ public class Operation {
 	}
 	public double getBalanceBefore() {
 		return balanceBefore;
-	}
-	public void setBalanceBefore(double balanceBefore) {
-		this.balanceBefore = balanceBefore;
-	}
+	}	
 	public double getOperationAmount() {
 		return operationAmount;
-	}
-	public void setOperationAmount(double operationAmount) {
-		this.operationAmount = operationAmount;
-	}
+	}	
 	public OperationType getType() {
 		return type;
-	}
-	public void setType(OperationType type) {
-		this.type = type;
-	}
+	}	
 	public Instant getDate() {
 		return date;
-	}
-	public void setDate(Instant date) {
-		this.date = date;
-	}
+	}	
 	@Override
 	public String toString() {
 		return "Operation [balanceBefore=" + balanceBefore + ", operationAmount=" + operationAmount + ", type="
