@@ -4,11 +4,10 @@ import java.time.Instant;
 
 public class OperationHistory {
 
-	private double 				balanceBefore;
-	private double 				operationAmount;
+	private double 			balanceBefore;
+	private double 			operationAmount;
 	private OperationTypeEnum 	type;
-	private OperationStatusEnum status;
-	private Instant 			date;
+	private Instant 		date;
 	
 	public OperationHistory(double balanceBefore,
 			double operationAmount,
@@ -16,7 +15,6 @@ public class OperationHistory {
 		this.balanceBefore = balanceBefore;
 		this.operationAmount = operationAmount;
 		this.type = type;
-		this.status = OperationStatusEnum.SUCCESS;
 		this.date = Instant.now();
 	}
 	public double getBalanceBefore() {
@@ -37,12 +35,6 @@ public class OperationHistory {
 	public void setType(OperationTypeEnum type) {
 		this.type = type;
 	}
-	public OperationStatusEnum getStatus() {
-		return status;
-	}
-	public void setStatus(OperationStatusEnum status) {
-		this.status = status;
-	}
 	public Instant getDate() {
 		return date;
 	}
@@ -52,7 +44,7 @@ public class OperationHistory {
 	@Override
 	public String toString() {
 		return "OperationHistory [balanceBefore=" + balanceBefore + ", operationAmount=" + operationAmount + ", type="
-				+ type + ", status=" + status + ", date=" + date + "]";
+				+ type + ", date=" + date + "]";
 	}
 	@Override
 	public int hashCode() {
@@ -64,7 +56,6 @@ public class OperationHistory {
 		result = prime * result + ((date == null) ? 0 : date.hashCode());
 		temp = Double.doubleToLongBits(operationAmount);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
-		result = prime * result + ((status == null) ? 0 : status.hashCode());
 		result = prime * result + ((type == null) ? 0 : type.hashCode());
 		return result;
 	}
@@ -85,8 +76,6 @@ public class OperationHistory {
 		} else if (!date.equals(other.date))
 			return false;
 		if (Double.doubleToLongBits(operationAmount) != Double.doubleToLongBits(other.operationAmount))
-			return false;
-		if (status != other.status)
 			return false;
 		if (type != other.type)
 			return false;
