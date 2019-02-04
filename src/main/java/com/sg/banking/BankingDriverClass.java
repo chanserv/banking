@@ -1,6 +1,7 @@
 package com.sg.banking;
 
 import com.sg.banking.entities.account.Account;
+import com.sg.banking.exceptions.OverdraftLimitException;
 import com.sg.banking.services.account.AccountService;
 import com.sg.banking.services.account.impl.SavingAccountService;
 
