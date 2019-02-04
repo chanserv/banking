@@ -4,7 +4,7 @@ import java.util.stream.Collectors;
 
 import com.sg.banking.entities.account.Account;
 import com.sg.banking.entities.operation.OperationHistory;
-import com.sg.banking.entities.operation.OperationTypeEnum;
+import com.sg.banking.entities.operation.OperationType;
 import com.sg.banking.exceptions.OverdraftLimitException;
 import com.sg.banking.services.account.AccountService;
 
@@ -15,7 +15,7 @@ public class SavingAccountService implements AccountService {
 		
 		OperationHistory operationHistory = new OperationHistory(account.getBalance(),
 				amount, 
-				OperationTypeEnum.DEPOSIT);
+				OperationType.DEPOSIT);
 		account.addHistory(operationHistory);
 		
 		if(amount < 0) {
@@ -29,7 +29,7 @@ public class SavingAccountService implements AccountService {
 		
 		OperationHistory operationHistory = new OperationHistory(account.getBalance(), 
 				amount, 
-				OperationTypeEnum.WITHDRAWAL);
+				OperationType.WITHDRAWAL);
 		account.addHistory(operationHistory);
 		
 		if(amount < 0) {
