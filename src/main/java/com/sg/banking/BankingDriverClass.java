@@ -19,7 +19,7 @@ public class BankingDriverClass {
 		System.out.println(account);
 		accountService.deposit(account, 100);
 		accountService.deposit(account, 100);
-		System.out.println(accountService.formatString(account));
+		System.out.println(accountService.seeHistory(account));
 	}
 
 }
