@@ -85,6 +85,7 @@ public class SavingAccountServiceTest {
 		} catch(Exception exception) {
 			assertThat(exception).isInstanceOf(OverdraftLimitException.class);
 		}
+		assertThat(account.getHistory().size()).isEqualTo(1);
 		assertThat(account.getHistory().get(0).getType()).isEqualTo(OperationTypeEnum.WITHDRAWAL);
 	}
 	
