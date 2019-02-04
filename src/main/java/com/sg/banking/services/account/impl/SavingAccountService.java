@@ -48,7 +48,7 @@ public class SavingAccountService implements AccountService {
 	 * But we can move all this logic to a dto class top preprocess data 
 	 */
 	@Override
-	public String formatString(Account account) {
+	public String seeHistory(Account account) {
 		return account.getHistory()
 			.stream()
 			.map(Object::toString)
