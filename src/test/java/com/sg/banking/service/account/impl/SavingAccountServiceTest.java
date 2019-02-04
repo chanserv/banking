@@ -6,7 +6,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.sg.banking.entities.account.Account;
-import com.sg.banking.entities.operation.OperationStatusEnum;
 import com.sg.banking.entities.operation.OperationTypeEnum;
 import com.sg.banking.exceptions.OverdraftLimitException;
 import com.sg.banking.services.account.AccountService;
@@ -75,7 +74,6 @@ public class SavingAccountServiceTest {
 		accountservice.deposit(account, amount);
 		assertThat(account.getHistory().size()).isEqualTo(1);
 		assertThat(account.getHistory().get(0).getType()).isEqualTo(OperationTypeEnum.DEPOSIT);
-		assertThat(account.getHistory().get(0).getStatus()).isEqualTo(OperationStatusEnum.SUCCESS);
 	}
 
 	@Test
@@ -88,7 +86,6 @@ public class SavingAccountServiceTest {
 			assertThat(exception).isInstanceOf(OverdraftLimitException.class);
 		}
 		assertThat(account.getHistory().get(0).getType()).isEqualTo(OperationTypeEnum.WITHDRAWAL);
-		assertThat(account.getHistory().get(0).getStatus()).isEqualTo(OperationStatusEnum.FAIL);
 	}
 	
 	@Test
