@@ -2,14 +2,14 @@ package com.sg.banking.entities.operation;
 
 import java.time.Instant;
 
-public class OperationHistory {
+public class Operation {
 
 	private double 		balanceBefore;
 	private double 		operationAmount;
 	private OperationType 	type;
 	private Instant 	date;
 	
-	public OperationHistory(double balanceBefore,
+	public Operation(double balanceBefore,
 			double operationAmount,
 			OperationType type) {
 		this.balanceBefore = balanceBefore;
@@ -43,7 +43,7 @@ public class OperationHistory {
 	}
 	@Override
 	public String toString() {
-		return "OperationHistory [balanceBefore=" + balanceBefore + ", operationAmount=" + operationAmount + ", type="
+		return "Operation [balanceBefore=" + balanceBefore + ", operationAmount=" + operationAmount + ", type="
 				+ type + ", date=" + date + "]";
 	}
 	@Override
@@ -67,7 +67,7 @@ public class OperationHistory {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		OperationHistory other = (OperationHistory) obj;
+		Operation other = (Operation) obj;
 		if (Double.doubleToLongBits(balanceBefore) != Double.doubleToLongBits(other.balanceBefore))
 			return false;
 		if (date == null) {
